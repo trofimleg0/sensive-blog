@@ -52,9 +52,7 @@ def index(request):
         "most_popular_posts": [
             serialize_post(post) for post in most_popular_posts
         ],
-        "page_posts": [
-            serialize_post(post) for post in most_fresh_posts
-        ],
+        "page_posts": [serialize_post(post) for post in most_fresh_posts],
         "popular_tags": [serialize_tag(tag) for tag in most_popular_tags],
     }
     return render(request, "index.html", context)
@@ -118,7 +116,11 @@ def tag_filter(request, tag_title):
         .fetch_with_comments_count()
     )
 
-    related_posts = Tag.objects.popular()[:20]
+    related_posts = (
+        Post.objects.popular()
+        .prefetch_related("author", "tags")[:20]
+        .fetch_with_comments_count()
+    )
 
     context = {
         "tag": tag.title,
