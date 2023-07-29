@@ -31,6 +31,15 @@ class PostQuerySet(models.QuerySet):
             post.comments_amount = count_for_id[post.id]
         return most_popular_posts
 
+    def fetch_with_author_and_tags(self):
+        posts_with_authors_and_tags = self.prefetch_related(
+            models.Prefetch("author"),
+            models.Prefetch(
+                "tags", queryset=Tag.objects.popular(), to_attr="post_tags"
+            ),
+        )
+        return posts_with_authors_and_tags
+
 
 class TagQuerySet(models.QuerySet):
     def popular(self):
