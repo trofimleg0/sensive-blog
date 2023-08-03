@@ -1,47 +1,42 @@
-# Блог им. Юрия Григорьевича
+# Blog by Yuri Grigorievich
 
-Блог о коммерческом успехе Юрия Григорьевича. Делюсь советами по бизнесу, жизни и о воспитании детей.
+Yuri Grigorievich's blog about commercial success. I share tips on business, life and about raising children.
 
-![Скриншот](screenshots/site.png)
+![Screenshots](screenshots/site.png)
 
-## Запуск
+## Launch
 
-Для запуска сайта вам понадобится Python третьей версии.
+You will need Python version 3 to run the site.
 
-Скачайте код с GitHub. Установите зависимости:
+Download the code from GitHub. Install the dependencies:
 
 ```sh
 pip install -r requirements.txt
 ```
 
-Создайте базу данных SQLite
+Create a SQLite database
 
 ```sh
 python3 manage.py migrate
 ```
 
-Запустите разработческий сервер
+Start the development server
 
 ```
 python3 manage.py runserver
 ```
 
-## Переменные окружения
+## Environment variables
 
-Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
+Some of the project settings come from environment variables. To define them, create a `.env` file next to `manage.py` and write the data there in this format: `VARIABLE=value`.
 
-Доступны 3 переменные:
-- `DEBUG` — дебаг-режим. Поставьте `True`, чтобы увидеть отладочную информацию в случае ошибки.
-- `SECRET_KEY` — секретный ключ проекта
-- `DATABASE_FILEPATH` — полный путь к файлу базы данных SQLite, например: `/home/user/schoolbase.sqlite3`
-- `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts)
+There are 3 variables available:
+- `DEBUG` — debug mode. Set `True` to see debug information in case of an error.
+- `SECRET_KEY` — project secret key
+- `DATABASE_FILEPATH` — The full path to the SQLite database file, for example: `/home/user/schoolbase.sqlite3`
+- `ALLOWED_HOSTS` — [Django documentation](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts)
 
 
-## Цели проекта
+## Project Goals
 
-Код написан в учебных целях — для курса по Python и веб-разработке на сайте [Devman](https://dvmn.org).
-
-В частности, репозиторий используется:
-
-- В уроке "Оптимизируем сайт" курса [Знакомство с Django: ORM](https://dvmn.org/modules/django-orm/).
-- В туториале [Превью для ImageField в админке](https://devman.org/encyclopedia/django/how-to-setup-image-preview/)
+The code is written for educational purposes - for a course on Python and web development on the [Devman](https://dvmn.org).
